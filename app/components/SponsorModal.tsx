@@ -11,16 +11,22 @@ export default function SponsorModal({ isOpen, onClose }: SponsorModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-lg bg-[#FFC700] rounded-3xl border-2 border-black p-6 md:p-8 text-[#0D0D0D] shadow-2xl overflow-hidden">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn cursor-pointer"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-lg bg-[#FCF4F4] rounded-3xl border-2 border-black p-6 md:p-8 text-[#0D0D0D] shadow-2xl overflow-hidden cursor-default"
+      >
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-black bg-black text-[#FFC700] flex items-center justify-center font-bold text-lg hover:scale-110 transition-transform"
+          className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-black bg-black text-[#FCF4F4] flex items-center justify-center font-bold text-lg hover:scale-110 transition-transform cursor-pointer"
         >
           ✕
         </button>
 
-        <span className="px-3 py-1 bg-black text-[#FFC700] font-mono text-xs font-bold rounded-full uppercase">
+        <span className="px-3 py-1 bg-black text-[#FCF4F4] font-mono text-xs font-bold rounded-full uppercase">
           PARTNERSHIPS & SPONSORSHIPS
         </span>
 
@@ -44,7 +50,7 @@ export default function SponsorModal({ isOpen, onClose }: SponsorModalProps) {
 
         <a
           href="mailto:sponsor@devfestilorin.com"
-          className="block text-center w-full py-4 rounded-xl border-2 border-black bg-black text-[#FFC700] font-syne font-extrabold text-base uppercase tracking-wider hover:bg-[#1a1a1a] transition-all hover:scale-[1.02] shadow-lg"
+          className="block text-center w-full py-4 rounded-xl border-2 border-black bg-black text-[#FCF4F4] font-syne font-extrabold text-base uppercase tracking-wider hover:bg-[#1a1a1a] transition-all hover:scale-[1.02] shadow-lg cursor-pointer"
         >
           GET SPONSORSHIP DECK (PDF) ↗
         </a>
