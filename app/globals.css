@@ -114,3 +114,18 @@ body {
 .animate-liquid-wobble {
   animation: liquidWobble 5s ease-in-out infinite;
 }
+
+/* Lanyard Marquee Horizontal Scroll Animation */
+@keyframes lanyardScroll {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -256px 0;
+  }
+}
+
+.animate-lanyard-scroll {
+  animation: lanyardScroll 16s linear infinite;
+}
+
