@@ -45,14 +45,14 @@ export default function Home() {
           </div>
 
           {/* HERO ACTION BUTTONS: Sponsor Us & Register */}
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-12 z-20">
+          <div className="flex flex-row items-center justify-center gap-2 sm:gap-4 mt-6 sm:mt-12 z-20 max-w-full px-2">
             {/* Sponsor Us Pill Button */}
             <button
               onClick={() => setIsSponsorOpen(true)}
-              className="flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] via-[#4F46E5] to-[#8B5CF6] text-white font-syne font-extrabold text-base sm:text-lg shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
+              className="flex items-center gap-2 sm:gap-3 pl-4 sm:pl-6 pr-1.5 sm:pr-2.5 py-1.5 sm:py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] via-[#4F46E5] to-[#8B5CF6] text-white font-syne font-extrabold text-xs sm:text-base md:text-lg shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer whitespace-nowrap"
             >
               <span>Sponsor Us</span>
-              <span className="w-8 h-8 rounded-full bg-white text-[#3B82F6] flex items-center justify-center font-bold text-sm shadow-inner">
+              <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white text-[#3B82F6] flex items-center justify-center font-bold text-[10px] sm:text-sm shadow-inner shrink-0">
                 ↗
               </span>
             </button>
@@ -60,10 +60,10 @@ export default function Home() {
             {/* Register Pill Button */}
             <button
               onClick={() => setIsRegisterOpen(true)}
-              className="flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-black text-white font-syne font-extrabold text-base sm:text-lg shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
+              className="flex items-center gap-2 sm:gap-3 pl-4 sm:pl-6 pr-1.5 sm:pr-2.5 py-1.5 sm:py-2.5 rounded-full bg-black text-white font-syne font-extrabold text-xs sm:text-base md:text-lg shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer whitespace-nowrap"
             >
               <span>Register</span>
-              <span className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-sm shadow-inner">
+              <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-[10px] sm:text-sm shadow-inner shrink-0">
                 ↗
               </span>
             </button>
@@ -72,15 +72,26 @@ export default function Home() {
 
         {/* BOTTOM CONTROLS & FOOTER RECAP */}
         <div className="relative z-20 flex flex-col gap-4 sm:gap-6 mt-6 sm:mt-16 w-full">
-          {/* Lanyard Pattern Line (replacing straight line) */}
-          <div
-            className="w-full h-6 sm:h-[29px] bg-repeat-x bg-center pointer-events-none"
-            style={{
-              backgroundImage: "url('/images/lanyard.svg')",
-              backgroundSize: "auto 100%",
-            }}
-            aria-hidden="true"
-          />
+          {/* Lanyard Pattern Line with Infinite Marquee Scroll & Side Fade-in / Fade-out */}
+          <div className="relative w-full overflow-hidden py-0.5">
+            {/* Left Edge Gradient Fade-In Overlay */}
+            <div className="absolute left-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 bg-gradient-to-r from-[#FCF4F4] to-transparent z-10 pointer-events-none" />
+
+            {/* Right Edge Gradient Fade-Out Overlay */}
+            <div className="absolute right-0 top-0 bottom-0 w-8 sm:w-16 md:w-24 bg-gradient-to-l from-[#FCF4F4] to-transparent z-10 pointer-events-none" />
+
+            {/* Scrolling Lanyard Track */}
+            <div
+              className="w-full h-6 sm:h-[29px] bg-repeat-x bg-center animate-lanyard-scroll pointer-events-none"
+              style={{
+                backgroundImage: "url('/images/lanyard.svg')",
+                backgroundSize: "auto 100%",
+                maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+              }}
+              aria-hidden="true"
+            />
+          </div>
 
           <div className="flex flex-row items-center justify-between gap-2 w-full">
             {/* Bottom Left: Scroll Indicator CTA */}
