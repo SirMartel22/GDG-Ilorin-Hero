@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 interface MenuModalProps {
   isOpen: boolean;
@@ -20,17 +21,31 @@ export default function MenuModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-end bg-black/70 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-md h-full bg-[#FFC700] border-l-2 border-black p-8 text-[#0D0D0D] flex flex-col justify-between overflow-y-auto">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-end bg-black/70 backdrop-blur-md animate-fadeIn cursor-pointer"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-md h-full bg-[#FCF4F4] border-l-2 border-black p-8 text-[#0D0D0D] flex flex-col justify-between overflow-y-auto cursor-default"
+      >
         <div>
-          {/* Close Header */}
+          {/* Close Header with Normal Logo */}
           <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-1 text-xl font-extrabold font-mono">
-              <span>&#123;</span>DevFest Ilorin<span>&#125;</span>
-            </div>
+            <a href="#" onClick={onClose} className="flex items-center hover:opacity-80 transition-opacity">
+              <Image
+                src="/logo.svg"
+                alt="DevFest Ilorin"
+                width={140}
+                height={40}
+                className="h-7 md:h-8 w-auto object-contain"
+                priority
+              />
+            </a>
             <button
               onClick={onClose}
-              className="w-10 h-10 rounded-full border-2 border-black bg-black text-[#FFC700] flex items-center justify-center font-bold text-lg hover:scale-110 transition-transform"
+              className="w-10 h-10 rounded-full border-2 border-black bg-black text-[#FCF4F4] flex items-center justify-center font-bold text-lg hover:scale-110 transition-transform cursor-pointer"
+              aria-label="Close menu"
             >
               ✕
             </button>
@@ -48,7 +63,7 @@ export default function MenuModal({
               <button
                 key={idx}
                 onClick={item.action}
-                className="w-full text-left font-syne text-2xl md:text-3xl font-extrabold tracking-tight uppercase py-2 border-b-2 border-black/20 hover:border-black hover:translate-x-2 transition-all flex items-center justify-between group"
+                className="w-full text-left font-syne text-2xl md:text-3xl font-extrabold tracking-tight uppercase py-2 border-b-2 border-black/20 hover:border-black hover:translate-x-2 transition-all flex items-center justify-between group cursor-pointer"
               >
                 <span>{item.title}</span>
                 <span className="text-xl group-hover:translate-x-1 transition-transform">→</span>
@@ -59,10 +74,10 @@ export default function MenuModal({
 
         {/* Bottom Menu Info */}
         <div className="pt-6 border-t-2 border-black/30">
-          <div className="text-xs font-extrabold uppercase tracking-widest text-black/60 mb-2">
+          <div className="text-xs font-extrabold uppercase tracking-widest text-black/60 mb-2 font-syne">
             EVENT LOCATION
           </div>
-          <div className="font-bold text-sm">Ilorin Innovation Hub, Ahmadu Bello Way, Ilorin, Kwara State.</div>
+          <div className="font-bold text-sm font-syne">Ilorin Innovation Hub, Ahmadu Bello Way, Ilorin, Kwara State.</div>
           <div className="mt-4 text-xs font-semibold text-black/60">
             Hosted by GDG Ilorin & Tech Community.
           </div>

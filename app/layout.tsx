@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, Plus_Jakarta_Sans, Caveat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const syne = Syne({
@@ -20,6 +21,12 @@ const caveat = Caveat({
   weight: ["700"],
 });
 
+const becomeActors = localFont({
+  src: "../public/font/BECOME ACTORS DEMO.otf",
+  variable: "--font-become-actors",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "DevFest Ilorin 2026 — We Build The Future",
   description: "The largest community developer festival in Ilorin. Join us for inspiring talks, workshops, and networking.",
@@ -33,9 +40,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${jakarta.variable} ${caveat.variable} h-full antialiased`}
+      className={`${syne.variable} ${jakarta.variable} ${caveat.variable} ${becomeActors.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#0E0E10] text-[#121212]">
+      <body className="min-h-full flex flex-col font-sans bg-[#FCF4F4] text-[#121212]">
         {children}
       </body>
     </html>

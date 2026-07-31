@@ -33,19 +33,25 @@ export default function RecapModal({ isOpen, onClose, initialIndex = 0 }: RecapM
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn">
-      <div className="relative w-full max-w-4xl bg-[#FFC700] rounded-3xl border-2 border-black p-6 md:p-8 text-[#0D0D0D] shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fadeIn cursor-pointer"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="relative w-full max-w-4xl bg-[#FCF4F4] rounded-3xl border-2 border-black p-6 md:p-8 text-[#0D0D0D] shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto cursor-default"
+      >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-black bg-black text-[#FFC700] flex items-center justify-center font-bold text-lg hover:scale-110 transition-transform"
+          className="absolute top-6 right-6 w-10 h-10 rounded-full border-2 border-black bg-black text-[#FCF4F4] flex items-center justify-center font-bold text-lg hover:scale-110 transition-transform cursor-pointer"
         >
           ✕
         </button>
 
         {/* Modal Header */}
         <div className="flex items-center gap-3 mb-6">
-          <span className="px-3 py-1 bg-black text-[#FFC700] font-mono text-xs font-bold rounded-full uppercase">
+          <span className="px-3 py-1 bg-black text-[#FCF4F4] font-mono text-xs font-bold rounded-full uppercase">
             Recap 2025
           </span>
           <h2 className="font-syne text-2xl md:text-3xl font-extrabold tracking-tight uppercase">
