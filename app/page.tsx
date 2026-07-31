@@ -38,7 +38,7 @@ export default function Home() {
 
           {/* NOVEMBER 2026 HEADING */}
           <div className="z-20 mt-1 sm:mt-2">
-            <h2 className="font-syne text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-widest uppercase text-[#0D0D0D] flex flex-col items-center gap-0 leading-none">
+            <h2 className="font-syne text-3xl sm:text-5xl md:text-4xl font-extrabold tracking-widest uppercase text-[#0D0D0D] flex flex-col items-center gap-0 leading-none">
               <span>NOVEMBER</span>
               <span>2026</span>
             </h2>
@@ -49,7 +49,7 @@ export default function Home() {
             {/* Sponsor Us Pill Button */}
             <button
               onClick={() => setIsSponsorOpen(true)}
-              className="flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] via-[#4F46E5] to-[#8B5CF6] text-white font-bold text-base sm:text-lg shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
+              className="flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-gradient-to-r from-[#3B82F6] via-[#4F46E5] to-[#8B5CF6] text-white font-syne font-extrabold text-base sm:text-lg shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
             >
               <span>Sponsor Us</span>
               <span className="w-8 h-8 rounded-full bg-white text-[#3B82F6] flex items-center justify-center font-bold text-sm shadow-inner">
@@ -60,7 +60,7 @@ export default function Home() {
             {/* Register Pill Button */}
             <button
               onClick={() => setIsRegisterOpen(true)}
-              className="flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-black text-white font-bold text-base sm:text-lg shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
+              className="flex items-center gap-3 pl-6 pr-2.5 py-2.5 rounded-full bg-black text-white font-syne font-extrabold text-base sm:text-lg shadow-md hover:shadow-lg hover:scale-[1.03] active:scale-95 transition-all duration-200 cursor-pointer"
             >
               <span>Register</span>
               <span className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-sm shadow-inner">
@@ -71,40 +71,52 @@ export default function Home() {
         </div>
 
         {/* BOTTOM CONTROLS & FOOTER RECAP */}
-        <div className="relative z-20 flex flex-row items-center justify-between gap-2 pt-4 sm:pt-6 border-t-[1.5px] border-[#0D0D0D]/20 mt-6 sm:mt-16 w-full">
-          {/* Bottom Left: Scroll Indicator CTA */}
-          <button
-            onClick={() => {
-              window.scrollTo({
-                top: window.innerHeight,
-                behavior: "smooth"
-              });
+        <div className="relative z-20 flex flex-col gap-4 sm:gap-6 mt-6 sm:mt-16 w-full">
+          {/* Lanyard Pattern Line (replacing straight line) */}
+          <div
+            className="w-full h-6 sm:h-[29px] bg-repeat-x bg-center pointer-events-none"
+            style={{
+              backgroundImage: "url('/images/lanyard.svg')",
+              backgroundSize: "auto 100%",
             }}
-            className="flex flex-row items-center gap-1.5 cursor-pointer group hover:opacity-80 transition-opacity text-left bg-transparent p-0 border-b border-[#0D0D0D] sm:border-b-2 pb-0.5"
-            aria-label="Scroll to explore next section"
-          >
-            <span className="text-[9px] sm:text-[11px] font-syne font-extrabold tracking-widest uppercase text-[#0D0D0D] whitespace-nowrap">
-              SCROLL TO EXPLORE
-            </span>
-            <svg
-              className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#0D0D0D] animate-bounce group-hover:translate-y-0.5 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
-            </svg>
-          </button>
+            aria-hidden="true"
+          />
 
-          {/* Bottom Right: Recap Link */}
-          <button
-            onClick={() => setIsRecapOpen(true)}
-            className="flex flex-row items-center gap-1 text-[9px] sm:text-xs font-syne font-extrabold tracking-wider uppercase border-b border-[#0D0D0D] sm:border-b-2 pb-0.5 hover:translate-x-0.5 transition-transform group cursor-pointer whitespace-nowrap"
-          >
-            <span>VIEW 2025 RECAP</span>
-            <span className="text-xs sm:text-sm group-hover:translate-x-0.5 transition-transform">→</span>
-          </button>
+          <div className="flex flex-row items-center justify-between gap-2 w-full">
+            {/* Bottom Left: Scroll Indicator CTA */}
+            <button
+              onClick={() => {
+                window.scrollTo({
+                  top: window.innerHeight,
+                  behavior: "smooth"
+                });
+              }}
+              className="flex flex-row items-center gap-1.5 cursor-pointer group hover:opacity-80 transition-opacity text-left bg-transparent p-0 border-b border-[#0D0D0D] sm:border-b-2 pb-0.5"
+              aria-label="Scroll to explore next section"
+            >
+              <span className="text-[9px] sm:text-[11px] font-syne font-extrabold tracking-widest uppercase text-[#0D0D0D] whitespace-nowrap">
+                SCROLL TO EXPLORE
+              </span>
+              <svg
+                className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#0D0D0D] animate-bounce group-hover:translate-y-0.5 transition-transform"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.6"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3" />
+              </svg>
+            </button>
+
+            {/* Bottom Right: Recap Link */}
+            <button
+              onClick={() => setIsRecapOpen(true)}
+              className="flex flex-row items-center gap-1 text-[9px] sm:text-xs font-syne font-extrabold tracking-wider uppercase border-b border-[#0D0D0D] sm:border-b-2 pb-0.5 hover:translate-x-0.5 transition-transform group cursor-pointer whitespace-nowrap"
+            >
+              <span>VIEW 2025 RECAP</span>
+              <span className="text-xs sm:text-sm group-hover:translate-x-0.5 transition-transform">→</span>
+            </button>
+          </div>
         </div>
 
       </div>
